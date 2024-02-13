@@ -15,18 +15,6 @@
       type="image/x-icon"
       sizes="32x32"
     />
-    <script>
-      // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
-      if (
-        localStorage.getItem("color-theme") === "dark" ||
-        (!("color-theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
 
     <title>Contact</title>
   </head>
@@ -150,7 +138,7 @@
     <div class="container px-6 py-16 mx-auto text-center">
       <div class="max-w-lg mx-auto">
         <h1
-          class="text-3xl font-semibold text-gray-800 dark:text-blue-400 lg:text-4xl"
+          class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl"
         >
           Elevate Your Web Presence and Unleash Powerful Backend Solutions –
           Let's Collaborate!
