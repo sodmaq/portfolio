@@ -1175,6 +1175,10 @@ input:checked + .toggle-bg {
   margin-left: auto;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -2170,6 +2174,14 @@ input:checked + .toggle-bg {
 
   .md\:mt-8 {
     margin-top: 2rem;
+  }
+
+  .md\:ml-4 {
+    margin-left: 1rem;
+  }
+
+  .md\:ml-auto {
+    margin-left: auto;
   }
 
   .md\:flex {
