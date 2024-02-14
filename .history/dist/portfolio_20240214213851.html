@@ -43,7 +43,39 @@
             <span class="fas fa-laptop text-3xl text-blue-500">Sodmaq</span>
           </a>
 
-          
+          <!-- Dark Mode / Light Mode Button  visible only on mobile -->
+          <div>
+            <!-- <button
+              id="theme-toggle"
+              type="button"
+              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-2 md:hidden"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="w-5 h-5 hidden"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="w-5 h-5 hidden"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button> -->
+          </div>
 
           <!-- Mobile menu button -->
 
@@ -180,64 +212,42 @@
       </div>
     </nav>
     <head>
-      <style>
-        body {
-          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-          margin: 20px;
-          background-color: #f4f4f4;
-        }
+       <style>
+        /* Apply dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a202c;
+                color: #e2e8f0;
+            }
 
-        .repo-container {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: 20px;
-          justify-content: center;
-        }
+            .repo {
+                background-color: #2d3748;
+                color: #e2e8f0;
+                border-color: #4a5568;
+            }
 
-        .repo {
-          padding: 15px;
-          border: 1px solid #ddd;
-          border-radius: 10px;
-          background-color: #fff;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          transition: transform 0.3s ease-in-out;
-        }
+            .repo:hover {
+                transform: scale(1.05);
+                background-color: #4a5568;
+            }
 
-        .repo:hover {
-          transform: scale(1.05);
-        }
+            .repo h3 {
+                color: #e2e8f0;
+            }
 
-        .repo h3 {
-          margin: 0 0 10px;
-          font-size: 1.2rem;
-          color: #333;
-        }
+            .repo p {
+                color: #a0aec0;
+            }
 
-        .repo img {
-          max-width: 100%;
-          border-radius: 5px;
-          margin-bottom: 10px;
-        }
+            .repo a {
+                color: #63b3ed;
+            }
 
-        .repo p {
-          margin: 0;
-          font-size: 1rem;
-          color: #777;
+            .repo a:hover {
+                color: #4299e1;
+            }
         }
-
-        .repo a {
-          display: block;
-          margin-top: 10px;
-          text-decoration: none;
-          color: #3498db;
-          font-weight: bold;
-          transition: color 0.3s ease-in-out;
-        }
-
-        .repo a:hover {
-          color: #2980b9;
-        }
-      </style>
+    </style>
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     <body>
