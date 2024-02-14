@@ -26,10 +26,14 @@
         document.documentElement.classList.remove("dark");
       }
     </script>
-    <title>About</title>
+
+    <title>Portfolio</title>
   </head>
   <body>
-    <nav x-data="{ isOpen: false }" class="relative bg-white dark:bg-gray-900">
+    <nav
+      x-data="{ isOpen: false }"
+      class="relative bg-white dark:bg-gray-900 mb-8"
+    >
       <div
         class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center"
       >
@@ -38,6 +42,42 @@
           <a class="navbar-brand w-full" href="index.html">
             <span class="fas fa-laptop text-3xl text-blue-500">Sodmaq</span>
           </a>
+
+          <!-- Dark Mode / Light Mode Button  visible only on mobile -->
+          <div>
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-2 md:hidden"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="w-5 h-5 hidden"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="w-5 h-5 hidden"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Mobile menu button -->
 
           <button
             id="theme-toggle"
@@ -141,7 +181,7 @@
           <button
             id="theme-toggle"
             type="button"
-            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 hidden md:flex"
+            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 border-2 border-red-500  md:flex"
           >
             <svg
               id="theme-toggle-dark-icon"
@@ -171,151 +211,113 @@
         </div>
       </div>
     </nav>
-    <!-- another -->
-    <section class="bg-white dark:bg-gray-900">
-      <div
-        class="container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center"
-      >
-        <div class="w-full lg:w-1/2">
-          <div class="lg:max-w-lg">
-            <h1 class="mb-4 title text-4xl dark:text-blue-400">
-              About Me <span class="typed-text text-5xl italic"></span
-              ><span class="cursor">&nbsp</span>
-            </h1>
+    <head>
+      <style>
+        body {
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          margin: 20px;
+          background-color: #f4f4f4;
+        }
 
-            <p class="mt-3 text-gray-600 dark:text-gray-400 text-2xl">
-              Greetings! I'm Yekini Sodiq Opeyemi, a dedicated web developer
-              with a fervor for crafting exceptional digital experiences. My
-              journey in the tech realm is fueled by a passion for coding, and I
-              find joy in unraveling complex challenges to create user-friendly
-              web solutions. With a creative mindset and a knack for
-              problem-solving, I am committed to delivering innovative and
-              elegant web experiences. Let's embark on a journey to bring your
-              digital vision to life, turning ideas into seamless and visually
-              stunning realities.
-            </p>
-          </div>
-        </div>
+        .repo-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+          justify-content: center;
+        }
 
-        <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
-          <img
-            class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl"
-            src="./images/myPhoto.jpg"
-            alt="glasses photo"
-          />
-        </div>
-      </div>
-    </section>
+        .repo {
+          padding: 15px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          background-color: #fff;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out;
+        }
 
-    <section class="bg-white dark:bg-gray-900">
-      <h1
-        class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white"
-      >
-        <br />
-        Services <span class="text-blue-500"> I Offer</span>
-      </h1>
-      <div
-        class="container grid grid-cols-1 gap-8 px-4 py-12 mx-auto lg:grid-cols-2"
-      >
-        <div class="flex flex-col items-center max-w-lg mx-auto text-center">
-          <h2
-            class="text-3xl font-semibold tracking-tight text-gray-800 dark:text-white"
-          >
-            Web development
-          </h2>
+        .repo:hover {
+          transform: scale(1.05);
+        }
 
-          <p class="mt-3 text-gray-500 dark:text-gray-300">
-            Crafting digital experiences that stand out. Elevate your online
-            presence with personalized web development solutions. From custom
-            websites to responsive designs, I bring your vision to life,
-            ensuring a seamless and engaging user experience. Let's build your
-            digital success together.
-          </p>
+        .repo h3 {
+          margin: 0 0 10px;
+          font-size: 1.2rem;
+          color: #333;
+        }
 
-          <a
-            href="./contact.html"
-            class="inline-flex items-center justify-center w-full px-5 py-2 mt-6 text-white transition-colors duration-300 bg-blue-600 rounded-lg sm:w-auto hover:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80"
-          >
-            Start now
-          </a>
-        </div>
+        .repo img {
+          max-width: 100%;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
 
-        <div class="flex flex-col items-center max-w-lg mx-auto text-center">
-          <h2
-            class="text-3xl font-semibold tracking-tight text-gray-800 dark:text-white"
-          >
-            Backend Engineer
-          </h2>
+        .repo p {
+          margin: 0;
+          font-size: 1rem;
+          color: #777;
+        }
 
-          <p class="mt-3 text-gray-500 dark:text-gray-300">
-            Powering digital innovation with robust backend solutions. As a
-            Backend Engineer, I specialize in creating the backbone of your
-            applications. From secure databases to server-side scripting, I
-            ensure seamless functionality, scalability, and optimal performance.
-            Let's build the engine that drives your digital success.
-          </p>
+        .repo a {
+          display: block;
+          margin-top: 10px;
+          text-decoration: none;
+          color: #3498db;
+          font-weight: bold;
+          transition: color 0.3s ease-in-out;
+        }
 
-          <a
-            href="./contact.html"
-            class="inline-flex items-center justify-center w-full px-5 py-2 mt-6 text-gray-700 transition-colors duration-300 transform bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-100 dark:text-white sm:w-auto dark:hover:bg-gray-800 dark:ring-gray-700 focus:ring focus:ring-gray-200 focus:ring-opacity-80"
-          >
-            Start now
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="bg-white dark:bg-gray-900">
-      <div
-        class="container grid grid-cols-1 gap-8 px-4 py-12 mx-auto lg:grid-cols-2"
-      >
-        <div class="flex flex-col items-center max-w-lg mx-auto text-center">
-          <h2
-            class="text-3xl font-semibold tracking-tight text-gray-800 dark:text-white"
-          >
-            Computer Engineer
-          </h2>
+        .repo a:hover {
+          color: #2980b9;
+        }
+      </style>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+      <div id="repositories" class="repo-container"></div>
 
-          <p class="mt-3 text-gray-500 dark:text-gray-300">
-            Your go-to expert for computer diagnostics and repair. As a Computer
-            Hardware Engineer, I specialize in identifying and resolving
-            hardware issues to ensure optimal performance. From diagnosing
-            system failures to upgrading components, I bring expertise in
-            enhancing the reliability and efficiency of your computer systems.
-            Let me be your partner in keeping your technology running smoothly.
-          </p>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var apiUrl = "https://api.github.com/users/sodmaq/repos";
 
-          <a
-            href="./contact.html"
-            class="inline-flex items-center justify-center w-full px-5 py-2 mt-6 text-white transition-colors duration-300 bg-blue-600 rounded-lg sm:w-auto hover:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80"
-          >
-            Start now
-          </a>
-        </div>
+          axios
+            .get(apiUrl)
+            .then(function (response) {
+              displayRepositories(response.data);
+            })
+            .catch(function (error) {
+              console.error("Error fetching repositories:", error);
+            });
 
-        <div class="flex flex-col items-center max-w-lg mx-auto text-center">
-          <h2
-            class="text-3xl font-semibold tracking-tight text-gray-800 dark:text-white"
-          >
-            IT Consultant
-          </h2>
+          function displayRepositories(repos) {
+            var repositoriesDiv = document.getElementById("repositories");
 
-          <p class="mt-3 text-gray-500 dark:text-gray-300">
-            Guiding businesses through the digital landscape. As your IT
-            Consultant, I provide strategic advice and solutions to optimize
-            your technology infrastructure. Leveraging my expertise, I aim to
-            enhance efficiency and streamline your operations. Let's collaborate
-            to create a tailored and efficient IT environment for your business.
-          </p>
+            if (repos.length === 0) {
+              repositoriesDiv.innerHTML = "<p>No repositories found.</p>";
+              return;
+            }
 
-          <a
-            href="./contact.html"
-            class="inline-flex items-center justify-center w-full px-5 py-2 mt-6 text-gray-700 transition-colors duration-300 transform bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-100 dark:text-white sm:w-auto dark:hover:bg-gray-800 dark:ring-gray-700 focus:ring focus:ring-gray-200 focus:ring-opacity-80"
-          >
-            Start now
-          </a>
-        </div>
-      </div>
-    </section>
+            repos.forEach(function (repo) {
+              var repoHtml = '<div class="repo">';
+              repoHtml += '<img src="./images/com.png" alt="Owner Avatar">';
+              repoHtml += "<h3>" + repo.name + "</h3>";
+              repoHtml += "<h3>" + repo.language + "</h3>";
+              repoHtml +=
+                "<p>" +
+                (repo.description || "No description available.") +
+                "</p>";
+              repoHtml +=
+                '<a href="' +
+                repo.html_url +
+                '" target="_blank">View on GitHub</a>';
+
+              repoHtml += "</div>";
+
+              repositoriesDiv.innerHTML += repoHtml;
+            });
+          }
+        });
+      </script>
+    </body>
 
     <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
       <div
@@ -349,6 +351,7 @@
         </ul>
       </div>
     </footer>
+
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
