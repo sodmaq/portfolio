@@ -412,7 +412,7 @@
         })
           .then((response) => {
             if (response.ok) {
-              window.location.href = "./success.html";
+              status.innerHTML = "Thanks for your submission!";
               form.reset();
             } else {
               response.json().then((data) => {

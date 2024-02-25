@@ -414,6 +414,7 @@
             if (response.ok) {
               window.location.href = "./success.html";
               form.reset();
+              
             } else {
               response.json().then((data) => {
                 if (Object.hasOwn(data, "errors")) {

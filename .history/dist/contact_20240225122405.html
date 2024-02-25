@@ -305,6 +305,8 @@
                   action="https://formspree.io/f/xvoekgod"
                   method="post"
                 >
+                  <div id="my-form-status">This is the status of the form.</div>
+
                   <div class="flex-1">
                     <label
                       class="block mb-2 text-sm text-gray-600 dark:text-gray-200"
@@ -351,7 +353,6 @@
                   >
                     Send Message
                   </button>
-                  <p id="my-form-status"></p>
                 </form>
               </div>
             </div>
@@ -412,7 +413,7 @@
         })
           .then((response) => {
             if (response.ok) {
-              window.location.href = "./success.html";
+              status.innerHTML = "Thanks for your submission!";
               form.reset();
             } else {
               response.json().then((data) => {

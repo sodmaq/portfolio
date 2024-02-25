@@ -305,6 +305,8 @@
                   action="https://formspree.io/f/xvoekgod"
                   method="post"
                 >
+                  <div id="my-form-status">This is the status of the form.</div>
+
                   <div class="flex-1">
                     <label
                       class="block mb-2 text-sm text-gray-600 dark:text-gray-200"
@@ -351,7 +353,6 @@
                   >
                     Send Message
                   </button>
-                  <p id="my-form-status"></p>
                 </form>
               </div>
             </div>
@@ -398,40 +399,45 @@
     <script>
       var form = document.getElementById("my-form");
 
-      async function handleSubmit(event) {
-        event.preventDefault();
-        console.log("Form submitted!"); // Check if this log appears
-        var status = document.getElementById("my-form-status");
-        var data = new FormData(event.target);
-        fetch(event.target.action, {
-          method: form.method,
-          body: data,
-          headers: {
-            Accept: "application/json",
-          },
-        })
-          .then((response) => {
-            if (response.ok) {
-              window.location.href = "./success.html";
-              form.reset();
-            } else {
-              response.json().then((data) => {
-                if (Object.hasOwn(data, "errors")) {
-                  status.innerHTML = data["errors"]
-                    .map((error) => error["message"])
-                    .join(", ");
-                } else {
-                  status.innerHTML =
-                    "Oops! There was a problem submitting your form";
-                }
-              });
-            }
-          })
-          .catch((error) => {
-            status.innerHTML = "Oops! There was a problem submitting your form";
-          });
+async function handleSubmit(event) {
+  event.preventDefault();
+  var status = document.getElementById("my-form-status");
+  console.log("Form submitted");
+  var data = new FormData(event.target);
+  console.log("Form data:", data);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      console.log("Response received:", response);
+      if (response.ok) {
+        status.innerHTML = "Thanks for your submission!";
+        form.reset();
+      } else {
+        response.json().then((data) => {
+          console.log("Error data:", data);
+          if (Object.hasOwn(data, "errors")) {
+            status.innerHTML = data["errors"]
+              .map((error) => error["message"])
+              .join(", ");
+          } else {
+            status.innerHTML =
+              "Oops! There was a problem submitting your form";
+          }
+        });
       }
-      form.addEventListener("submit", handleSubmit);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      status.innerHTML = "Oops! There was a problem submitting your form";
+    });
+}
+form.addEventListener("submit", handleSubmit);
+
     </script>
   </body>
 </html>

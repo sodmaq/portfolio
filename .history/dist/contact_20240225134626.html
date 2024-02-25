@@ -414,6 +414,10 @@
             if (response.ok) {
               window.location.href = "./success.html";
               form.reset();
+              setTimeout(() => {
+            window.location.href = "./index.html";
+          }, 3000); // Adjust the delay as needed (3 seconds in this example)
+        }
             } else {
               response.json().then((data) => {
                 if (Object.hasOwn(data, "errors")) {
